@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenBrain — Private AI in Your Browser</title>
+    <meta name="description" content="OpenBrain: Run AI models locally in your browser. Complete privacy, no servers, no data leaves your device." />
+    <meta name="author" content="OpenBrain" />
+    <meta name="theme-color" content="#0d1117" />
+
+    <meta property="og:title" content="OpenBrain — Private AI in Your Browser" />
+    <meta property="og:description" content="Run AI models locally in your browser. Complete privacy, no servers." />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/brain-icon.svg" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
