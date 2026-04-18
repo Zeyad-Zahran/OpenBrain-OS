@@ -1,17 +1,22 @@
 import { useState, useCallback } from 'react';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { Button } from '@/components/ui/button';
+import { Github, BookOpen } from 'lucide-react';
 import { ChatSidebar } from '@/components/ChatSidebar';
 import { ChatArea } from '@/components/ChatArea';
 import { SettingsPanel } from '@/components/SettingsPanel';
 import { KnowledgePanel } from '@/components/KnowledgePanel';
+import { HowItWorksPanel } from '@/components/HowItWorksPanel';
 import { useChat } from '@/hooks/useChat';
 import { useAppSettings, SettingsContext, useSettingsProvider } from '@/hooks/useAppSettings';
-import { getDir } from '@/lib/i18n';
+import { getDir, t } from '@/lib/i18n';
 import type { Conversation } from '@/lib/db';
+
+const GITHUB_URL = 'https://github.com/Zeyad-Zahran/OpenBrain-OS';
 
 function ChatApp() {
   const { settings, locale } = useAppSettings();
-  const [view, setView] = useState<'chat' | 'settings' | 'knowledge'>('chat');
+  const [view, setView] = useState<'chat' | 'settings' | 'knowledge' | 'how'>('chat');
   const [refreshKey, setRefreshKey] = useState(0);
 
   const {
@@ -58,17 +63,36 @@ function ChatApp() {
         onSelectChat={handleSelectChat}
         onOpenSettings={() => setView('settings')}
         onOpenKnowledge={() => setView('knowledge')}
+        onOpenHowItWorks={() => setView('how')}
         refreshKey={refreshKey}
       />
 
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="h-12 flex items-center border-b border-border px-2 shrink-0">
+        <header className="h-12 flex items-center border-b border-border px-2 shrink-0 gap-2">
           <SidebarTrigger />
           {view === 'chat' && conversation && (
-            <span className="ml-3 text-sm font-medium truncate text-muted-foreground">
+            <span className="ms-3 text-sm font-medium truncate text-muted-foreground">
               {conversation.title}
             </span>
           )}
+          <div className="ms-auto flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setView('how')}
+              className="gap-1.5"
+              title={t(locale, 'howItWorks')}
+            >
+              <BookOpen className="h-4 w-4" />
+              <span className="hidden md:inline">{t(locale, 'howItWorks')}</span>
+            </Button>
+            <Button variant="ghost" size="sm" asChild className="gap-1.5" title={t(locale, 'starOnGithub')}>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                <span className="hidden md:inline">{t(locale, 'starOnGithub')}</span>
+              </a>
+            </Button>
+          </div>
         </header>
 
         <main className="flex-1 min-h-0">
@@ -79,6 +103,8 @@ function ChatApp() {
             />
           ) : view === 'knowledge' ? (
             <KnowledgePanel onBack={() => setView('chat')} />
+          ) : view === 'how' ? (
+            <HowItWorksPanel onBack={() => setView('chat')} />
           ) : (
             <ChatArea
               conversation={conversation}

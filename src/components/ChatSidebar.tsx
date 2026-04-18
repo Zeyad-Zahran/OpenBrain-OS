@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, MessageSquare, Trash2, Settings, Globe, Brain, Download, Upload, AlertTriangle } from 'lucide-react';
+import { Plus, MessageSquare, Trash2, Settings, Globe, Brain, Download, Upload, AlertTriangle, Github, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -32,8 +32,11 @@ interface ChatSidebarProps {
   onSelectChat: (conv: Conversation) => void;
   onOpenSettings: () => void;
   onOpenKnowledge: () => void;
+  onOpenHowItWorks: () => void;
   refreshKey: number;
 }
+
+const GITHUB_URL = 'https://github.com/Zeyad-Zahran/OpenBrain-OS';
 
 export function ChatSidebar({
   currentConvId,
@@ -41,6 +44,7 @@ export function ChatSidebar({
   onSelectChat,
   onOpenSettings,
   onOpenKnowledge,
+  onOpenHowItWorks,
   refreshKey,
 }: ChatSidebarProps) {
   const [conversations, setConversations] = useState<Conversation[]>([]);
@@ -138,6 +142,20 @@ export function ChatSidebar({
 
       <SidebarFooter className="p-2 space-y-1">
         <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton onClick={onOpenHowItWorks}>
+              <BookOpen className="h-4 w-4" />
+              {!collapsed && <span>{t(locale, 'howItWorks')}</span>}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                {!collapsed && <span>{t(locale, 'starOnGithub')}</span>}
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton onClick={onOpenKnowledge}>
               <Brain className="h-4 w-4" />

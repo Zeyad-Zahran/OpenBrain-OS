@@ -213,8 +213,8 @@ Gemma 4 models (E2B, E4B) use a multimodal architecture (image-text-to-text) wit
 
 ```bash
 # Clone the repository
-git clone https://github.com/zeyad-zahran/OpenBrain-OS.git
-cd OpenBrain-OS
+git clone https://github.com/zeyad-zahran/openbrain.git
+cd openbrain
 
 # Install dependencies
 npm install
@@ -438,19 +438,12 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 🛡️ License & Data Sovereignty
+## License
 
-This project is licensed under the **Polyform Noncommercial License 1.0.0**. 
-
-* **For Individuals & Researchers:** You are free to explore, contribute, and evolve this collective intelligence.
-* **For Commercial Entities:** Use, redistribution, or integration into commercial products is **strictly prohibited** without explicit written permission.
-* **Privacy First:** Users maintain 100% ownership of their cognitive data. You can view, export, or permanently purge your learned patterns at any time.
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
 <p align="center">
-  <strong>OpenBrain</strong> — The Decentralized Collective Intelligence. <br>
-  <em> Your Device , Your Privacy , YourAI.</em>
+  <strong>OpenBrain</strong> — Your AI, Your Device, Your Privacy.
 </p>
-
-

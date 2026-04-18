@@ -66,6 +66,11 @@ const translations = {
     importData: 'Import Data',
     deleteAllData: 'Delete All Data',
     deleteAllDataConfirm: 'This will permanently delete all conversations, memory, knowledge base, and settings. This action cannot be undone. Export your data first if you want a backup.',
+    howItWorks: 'How it works?',
+    starOnGithub: 'Star on GitHub',
+    downloadPdf: 'Download PDF',
+    researchTitle: 'Decentralizing Intelligence',
+    researchSubtitle: 'The technical research paper behind OpenBrain',
   },
   ar: {
     appName: 'OpenBrain',
@@ -132,6 +137,11 @@ const translations = {
     importData: 'استيراد البيانات',
     deleteAllData: 'حذف جميع البيانات',
     deleteAllDataConfirm: 'سيتم حذف جميع المحادثات والذاكرة وقاعدة المعرفة والإعدادات نهائياً. لا يمكن التراجع. قم بتصدير بياناتك أولاً إذا أردت نسخة احتياطية.',
+    howItWorks: 'كيف يعمل؟',
+    starOnGithub: 'ادعمنا على GitHub',
+    downloadPdf: 'تحميل PDF',
+    researchTitle: 'لا مركزية الذكاء الاصطناعي',
+    researchSubtitle: 'البحث التقني وراء OpenBrain',
   },
 } as const;
 
