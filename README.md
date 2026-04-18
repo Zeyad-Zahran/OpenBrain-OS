@@ -450,7 +450,7 @@ This project is licensed under the **Polyform Noncommercial License 1.0.0**.
 
 <p align="center">
   <strong>OpenBrain</strong> — The Decentralized Collective Intelligence. <br>
-  <em>Owned by Everyone. Controlled by No One. Your Device , Your Privacy , YourAI.</em>
+  <em> Your Device , Your Privacy , YourAI.</em>
 </p>
 
 
